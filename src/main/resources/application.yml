@@ -1,0 +1,21 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: prueba-tenpo
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+  flyway:
+    enabled: true
+  sql:
+    init:
+      mode: always
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+

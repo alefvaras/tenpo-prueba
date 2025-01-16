@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api-service:
+    build: .
+    container_name: prueba-tenpo
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/postgres
+      SPRING_R2DBC_USERNAME: postgres
+      SPRING_R2DBC_PASSWORD: admin
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
