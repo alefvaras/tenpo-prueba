@@ -47,9 +47,11 @@ Asegúrate de tener instalados los siguientes programas:
 1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/alefvaras/tenpo-prueba.git
-
-
+   
 2 **Docker**:
    ```bash
+    docker pull aleeeee/prueba-tenpo
     docker-compose up --build
+
+
 
